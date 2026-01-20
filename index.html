@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+<h1>Dashboard</h1>
+<table border="1">
+<tr><th>Datum</th><th>Čas</th><th>Start</th><th>Cíl</th><th>Potvrzení</th></tr>
+{% for r in rides %}
+<tr style="{% if r[6] == 1 %}background-color:#d4f7d4;{% else %}background-color:#ffd6d6;{% endif %}">
+    <td>{{ r[1]|format_date }}</td>
+    <td>{{ r[2] }}</td>
+    <td>{{ r[3] }}</td>
+    <td>{{ r[4] }}</td>
+    <td>{% if r[6]==1 %}Schváleno{% else %}Čeká{% endif %}</td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>
